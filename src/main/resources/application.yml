@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: teste-backend
+  datasource:
+    url: ${DATASOURCE_URL:jdbc:postgresql://localhost:5433/testebackend}
+    username: ${DATASOURCE_USERNAME:postgres}
+    password: ${DATASOURCE_PASSWORD:postgres}
+    driver-class-name: org.postgresql.Driver
+  jackson:
+    property-naming-strategy: SNAKE_CASE
