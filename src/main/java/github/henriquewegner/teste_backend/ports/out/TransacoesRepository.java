@@ -7,5 +7,5 @@ import java.util.List;
 public interface TransacoesRepository {
 
     TransacaoEntity save(TransacaoEntity entity);
-    List<TransacaoEntity> findByClienteId(Integer id);
+    List<TransacaoEntity> findByClienteIdOrderByRealizadaEmDesc(Integer id);
 }

@@ -1,1 +1,0 @@
-docker run --name testebackenddb -e POSTGRES_PASSWORD=postgres -e POSTGRES_USER=postgres -e POSTGRES_DB=testebackend -p 5433:5432 -d --network ecommerce-network postgres:16.3

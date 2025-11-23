@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface TransacoesRepositoryJpa extends JpaRepository<TransacaoEntity, Integer> {
 
-    List<TransacaoEntity> findByClienteId(Integer id);
+    List<TransacaoEntity> findByClienteIdOrderByRealizadaEmDesc(Integer id);
 }

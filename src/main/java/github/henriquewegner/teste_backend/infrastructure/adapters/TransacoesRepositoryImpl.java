@@ -20,7 +20,7 @@ public class TransacoesRepositoryImpl implements TransacoesRepository {
     }
 
     @Override
-    public List<TransacaoEntity> findByClienteId(Integer id) {
-        return transacoesRepositoryJpa.findByClienteId(id);
+    public List<TransacaoEntity> findByClienteIdOrderByRealizadaEmDesc(Integer id) {
+        return transacoesRepositoryJpa.findByClienteIdOrderByRealizadaEmDesc(id);
     }
 }

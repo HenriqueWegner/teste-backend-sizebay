@@ -64,12 +64,14 @@ public class ClientesUseCaseImpl implements ClientesUseCase {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public Optional<ExtratoResponseDTO> buildExtrato(Integer id) {
         return clientesRepository.findById(id)
                 .map(clienteEntity -> {
                     SaldoResponseDTO saldo = clienteMapper.toDto(clienteMapper.toDomain(clienteEntity));
 
-                    List<TransacaoEntity> ultimasTransacoesEntity = transacoesRepository.findByClienteId(clienteEntity.getId());
+                    List<TransacaoEntity> ultimasTransacoesEntity =
+                            transacoesRepository.findByClienteIdOrderByRealizadaEmDesc(clienteEntity.getId());
                     List<UltimasTransacoesResponseDTO> ultimasTransacoes = ultimasTransacoesEntity == null
                             ? Collections.emptyList()
                             : transacaoMapper.toDto(transacaoMapper.toDomain(ultimasTransacoesEntity));
